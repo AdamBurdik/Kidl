@@ -50,7 +50,7 @@ Kidl kidl = Kidl.builder()
         .standardExceptionTranslation()
         .build();
         
-kidl.load(Path.of("./config/example_item.kdl"), (id, ctx, cursor ) -> {
+var result kidl.load(Path.of("./config/example_item.kdl"), (id, ctx, cursor) -> {
     if (!id.equals("item")) return;
     
     String itemId = cursor.arguments().getString(0);
