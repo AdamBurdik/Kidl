@@ -120,7 +120,7 @@ pretty colors in terminal :O
 
 ## How to use
 
-Use [jitpack](https://jitpack.io/#AdamBurdik/lint) to include it in your project
+Use [jitpack](https://jitpack.io/#AdamBurdik/kidl) to include it in your project
 
 ```kotlin
 repositories {
