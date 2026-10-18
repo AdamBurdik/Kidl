@@ -1,5 +1,7 @@
 # Kidl
 
+[![](https://jitpack.io/v/AdamBurdik/kidl.svg)](https://jitpack.io/#AdamBurdik/kidl)
+
 Simple library to parse and validate kdl configuration files.
 Basically just a port of [lint](https://github.com/AdamBurdik/lint) for [kdl](https://kdl.dev) format
 
