@@ -36,10 +36,9 @@ public class Cursor extends NodeScope {
     public Cursor(
             @NotNull String file,
             @NotNull KdlNode root,
-            @NotNull List<Diagnostic> diagnostics,
-            @NotNull FileSpan owner
+            @NotNull List<Diagnostic> diagnostics
     ) {
-        super(file, diagnostics, owner);
+        super(file, diagnostics, new FileSpan(file, root.parseContext().span()));
         this.root = root;
         this.childNodes = root.children();
         this.properties = new Properties(file, root.properties(), diagnostics, owner);
@@ -62,7 +61,7 @@ public class Cursor extends NodeScope {
 
 
     public @NotNull FileSpan span() {
-        return new FileSpan(file, root.parseContext().span());
+        return owner;
     }
     
     /**

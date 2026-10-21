@@ -86,7 +86,7 @@ public final class Children<E extends Enum<E> & ChildKind> extends NodeScope imp
         for (KdlNode node : nodes) {
             E constant = byId.get(node.name());
             if (constant != null) {
-                children.add(new TypedCursor<>(file, node, diagnostics, owner, constant));
+                children.add(new TypedCursor<>(file, node, diagnostics, constant));
             }
         }
     }

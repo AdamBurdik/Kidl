@@ -54,7 +54,7 @@ public final class DynamicChildren extends NodeScope {
                 continue;
             }
 
-            entries.put(key, new Cursor(file, node, diagnostics, owner));
+            entries.put(key, new Cursor(file, node, diagnostics));
             firstSpans.put(key, span);
         }
     }

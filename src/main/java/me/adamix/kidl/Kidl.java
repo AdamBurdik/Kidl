@@ -7,7 +7,6 @@ import dev.kdl.parse.KdlParser;
 import lombok.Builder;
 import me.adamix.kidl.config.DiagnosticsConfig;
 import me.adamix.kidl.diagnostic.Diagnostic;
-import me.adamix.kidl.diagnostic.FileSpan;
 import me.adamix.kidl.error.DiagnosticError;
 import me.adamix.kidl.error.Severity;
 import me.adamix.kidl.render.AnsiRenderer;
@@ -72,15 +71,7 @@ public class Kidl {
             var document = kdlParser.parse(file, text);
             for (KdlNode root : document.nodes()) {
                 
-                Cursor cursor = new Cursor(
-                        file,
-                        root,
-                        diagnostics,
-                        new FileSpan(
-                                file,
-                                root.parseContext().span()
-                        )
-                );
+                Cursor cursor = new Cursor(file, root, diagnostics);
 
                 validator.accept(
                         root.name(),

@@ -3,7 +3,6 @@ package me.adamix.kidl.view;
 import dev.kdl.KdlNode;
 import me.adamix.kidl.Cursor;
 import me.adamix.kidl.diagnostic.Diagnostic;
-import me.adamix.kidl.diagnostic.FileSpan;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -22,10 +21,9 @@ public final class TypedCursor<E extends Enum<E> & ChildKind> extends Cursor {
             @NotNull String file,
             @NotNull KdlNode node,
             @NotNull List<Diagnostic> diagnostics,
-            @NotNull FileSpan owner,
             @NotNull E kind
     ) {
-        super(file, node, diagnostics, owner);
+        super(file, node, diagnostics);
         this.kind = kind;
     }
 
