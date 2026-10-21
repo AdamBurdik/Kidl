@@ -25,6 +25,7 @@ import java.util.Map;
  */
 public class Cursor extends NodeScope {
 
+    private final KdlNode root;
     private final List<KdlNode> childNodes;
     private final Properties properties;
     private final Arguments arguments;
@@ -39,6 +40,7 @@ public class Cursor extends NodeScope {
             @NotNull FileSpan owner
     ) {
         super(file, diagnostics, owner);
+        this.root = root;
         this.childNodes = root.children();
         this.properties = new Properties(file, root.properties(), diagnostics, owner);
         this.arguments = new Arguments(file, root.arguments(), diagnostics, owner);
@@ -58,6 +60,11 @@ public class Cursor extends NodeScope {
         return arguments;
     }
 
+
+    public @NotNull FileSpan span() {
+        return new FileSpan(file, root.parseContext().span());
+    }
+    
     /**
      * The nodes children, validated and typed against {@code type} {@link ChildKind} declaration.
      * Calling this twice with the same type returns the same view.

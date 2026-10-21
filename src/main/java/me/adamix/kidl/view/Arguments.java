@@ -34,6 +34,10 @@ public final class Arguments extends NodeScope {
         this.values = new ArrayList<>(values);
     }
 
+    public @NotNull FileSpan span(int index) {   // doesn't mark the argument as read
+        return spanOf(values.get(index));
+    }
+    
     /**
      * Number of positional arguments on the node.
      * */
